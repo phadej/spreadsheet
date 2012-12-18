@@ -1,0 +1,50 @@
+INPUT:
+A1: 0
+A2: A2
+B1: =1+2*3
+B2: =B1 + 3
+B3: =B1 * B2
+B4: =SUM(B1, B2, B3)
+B5: =AVG(B2, 10 + 2 * 5, SUM(B2, 0))
+B26: 1
+C11: C11
+Z1: Z1
+Z2: 2
+AA3: 3
+AZ4: 4
+BA5: 5
+AAA1000: 6
+
+COMPILING:
+ERROR compiling A2 -- not formula
+ERROR compiling C11 -- not formula
+ERROR compiling Z1 -- not formula
+
+COMPILED:
+A1: 0
+B1: (+ 1 (* 2 3))
+B2: (+ B1 3)
+B3: (* B1 B2)
+B4: (+ B1 B2 B3)
+B5: (avg B2 (+ 10 (* 2 5)) (+ B2 0))
+B26: 1
+Z2: 2
+AA3: 3
+AZ4: 4
+BA5: 5
+AAA1000: 6
+
+EVALUATED:
+A1: 0
+B1: 7
+B2: 10
+B3: 70
+B4: 87
+B5: 13.3333
+B26: 1
+Z2: 2
+AA3: 3
+AZ4: 4
+BA5: 5
+AAA1000: 6
+

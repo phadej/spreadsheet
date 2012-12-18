@@ -1,0 +1,12 @@
+A1: #EVAL_ERROR circular reference
+A2: #EVAL_ERROR circular reference
+B1: #EVAL_ERROR circular reference
+B2: 5
+B3: #EVAL_ERROR circular reference
+C1: #EVAL_ERROR circular reference
+D1: 1
+D2: #EVAL_ERROR circular reference
+D3: 3
+D4: #EVAL_ERROR circular reference
+D5: 6
+D6: 7

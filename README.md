@@ -1,0 +1,1 @@
+Simple spreadsheet calculator library.

@@ -1,0 +1,27 @@
+FIRST
+A2: A2
+B1: 7
+B2: 10
+B3: 70
+B4: 87
+B5: 13.3333
+B6: 3
+C1: #EVAL_ERROR not formula or number cell -- C2
+C11: C11
+D1: #SYNTAX_ERROR Cannot parse formula
+D2: #SYNTAX_ERROR no function -- FOO
+D3: #SYNTAX_ERROR failed to tokenize
+D4: #SYNTAX_ERROR cannot parse, no matching closing parenhece
+D5: #SYNTAX_ERROR Cannot parse formula
+D6: #SYNTAX_ERROR Cannot parse formula
+Z1: Z1
+
+SECOND
+A2: A2
+B1: 7
+B2: 10
+B3: 70
+B4: 87
+B5: 13.3333
+B6: 3
+C11: C11
