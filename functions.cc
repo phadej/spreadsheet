@@ -29,9 +29,12 @@ double avg_function::apply(const std::vector<double> &parameters) const {
 }
 
 double minus_function::apply(const std::vector<double> &parameters) const {
-	double ret = 0;
-	for (double d : parameters) {
-		ret -= d;
+	if (parameters.size() == 0) { return 1; }
+	if (parameters.size() == 1) { return -parameters[0]; }
+
+	double ret = parameters[0];
+	for (auto iter = ++parameters.begin(); iter != parameters.end(); ++iter) {
+		ret -= *iter;
 	}
 	return ret;
 }
@@ -45,9 +48,12 @@ double mul_function::apply(const std::vector<double> &parameters) const {
 }
 
 double div_function::apply(const std::vector<double> &parameters) const {
-	double ret = 1;
-	for (double d : parameters) {
-		ret /= d;
+	if (parameters.size() == 0) { return 1; }
+	if (parameters.size() == 1) { return 1/parameters[0]; }
+
+	double ret = parameters[0];
+	for (auto iter = ++parameters.begin(); iter != parameters.end(); ++iter) {
+		ret /= *iter;
 	}
 	return ret;
 }

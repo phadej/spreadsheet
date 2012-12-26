@@ -8,6 +8,11 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <cmath>
+
+double pi(double) {
+	return 3.141592653589793238462643383279;
+}
 
 void test() {
 	table<std::string> input;
@@ -30,6 +35,16 @@ void test() {
 	input.set("B4", "=SUM(B1, B2, B3)");
 	input.set("B5", "=AVG(B2, 10 + 2 * 5, SUM(B2, 0))");
 
+	input.set("C1", "=PI(0)");
+	input.set("C2", "=SIN(0)");
+	input.set("C3", "=COS(0)");
+	input.set("C4", "=SIN(PI(0)/2)");
+	input.set("C5", "=COS(PI(0)/2)+2");
+	input.set("C6", "=SIN(0.5)*SIN(0.5) + COS(0.5)*COS(0.5)");
+
+	input.set("D1", "=3/4");
+	input.set("D2", "=3-4");
+
 	std::cout << "INPUT:" << std::endl;
 	for (auto &p : input) {
 		std::cout << p.first << ": " << p.second << std::endl;
@@ -43,6 +58,10 @@ void test() {
 	functions["/"] = new div_function();
 	functions["SUM"] = new plus_function();
 	functions["AVG"] = new avg_function();
+
+	functions["PI"] = new lifted_unary_function("pi", pi);
+	functions["SIN"] = new lifted_unary_function("sin", sin);
+	functions["COS"] = new lifted_unary_function("cos", cos);
 
 	table<astnode *> compiled;
 

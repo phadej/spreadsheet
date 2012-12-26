@@ -8,6 +8,7 @@
 #include <set>
 
 #include "definitions.hh"
+#include "exceptions.hh"
 #include "cellindex.hh"
 #include "table.hh"
 
@@ -86,6 +87,22 @@ class if_function : public function {
 public:
 	if_function() : function("if") {}
 	double apply(const std::vector<astnode *> &parameters, const environment &s, std::set<cellindex> &evaluation_stack) const;
+};
+
+/** Template to lift c++ functions into spreadsheet. They are strict as c++ is strict anyways. */
+class lifted_unary_function : public strict_function {
+public:
+	lifted_unary_function(const std::string &name, double (*f)(double)) : strict_function(name), m_f(f) {}
+	double apply(const std::vector<double> &parameters) const {
+		// We expect three arguments
+		if (parameters.size() != 1) {
+			throw evaluation_error(str() + " requires 1 parameter");
+		}
+
+		return m_f(parameters[0]);
+	}
+protected:
+	double (*m_f)(double);
 };
 
 #endif
