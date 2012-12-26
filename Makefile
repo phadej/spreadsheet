@@ -31,7 +31,7 @@ tests/%.test : tests/%.test.cc $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 tests/%.output.txt : tests/%.test tests/%.expected.txt
-	./$^ | tee $@
+	(valgrind $^ || ./$^) | tee $@
 	diff -u $(@:output.txt=expected.txt) $@
 
 clean :

@@ -34,6 +34,10 @@ void test() {
 	for (const cellindex &i : s.non_empty_cells()) {
 		std::cout << i << ": " << s.evaluate(i) << std::endl;
 	}
+
+	for (auto &p : functions) {
+		delete p.second;
+	}
 }
 
 int main() {
