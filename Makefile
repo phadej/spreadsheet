@@ -1,5 +1,10 @@
+# Clang
 CXX=clang++
 CXXFLAGS=-std=c++11 -stdlib=libc++ -g
+
+# G++
+#CXX=g++
+#CXXFLAGS=-std=c++0x -g -Wall -pedantic
 
 PARTS := cellindex functions parser ast spreadsheet
 TESTS := first second circular

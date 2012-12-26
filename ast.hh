@@ -36,7 +36,7 @@ public:
 	virtual double evaluate(const environment &env, std::set<cellindex> &evaluation_stack) const = 0;
 
 	// Virtual destructor!
-	virtual ~astnode() = default;
+	virtual ~astnode() {}
 };
 
 /** Evaluation environment. Abstracts table of `astnode`. 

@@ -3,6 +3,8 @@
 #ifndef CELLINDEX_HH
 #define CELLINDEX_HH
 
+#include <string>
+
 /** Representing cell index. Pair of integers with few helper functions. 
  * Members are const, so this structure is non-mutable.
  */
